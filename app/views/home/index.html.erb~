@@ -1,0 +1,25 @@
+<%if user_signed_in?%>
+<% if current_user.pessoa.present?%>
+<br/>
+<p>  <h1>Você está aqui:</h1>
+</p>
+<p>
+  <%= current_user.pessoa.endereco%>
+</p>
+<p>
+<p>
+
+</p>
+<%= form_tag(home_locais_path, :method => 'get', :remote => true, :'data-update-target' => 'update-   container') do %>
+    <p>
+     <%= submit_tag 'Localizar locais proximos', :disable_with => 'Please wait...', :class => 'submit' %>
+    </p>
+  <% end %>
+<%else%>
+<p><%= ("Realize o cadastro. #{link_to "Clique Aqui", new_pessoa_path}").html_safe%></p>
+<%end%>
+<br/>
+<p>
+<div id="spot">
+</div>
+

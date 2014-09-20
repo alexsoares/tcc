@@ -1,0 +1,3 @@
+$('#geocoding_fields').show();
+$('#geocoding').addClass('active');
+
