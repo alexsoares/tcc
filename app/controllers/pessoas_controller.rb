@@ -1,4 +1,5 @@
 class PessoasController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_pessoa, only: [:show, :edit, :update, :destroy]
 
   # GET /pessoas
@@ -18,7 +19,12 @@ class PessoasController < ApplicationController
 
   # GET /pessoas/new
   def new
+    if current_user.pessoa.present?
+      @pessoa = Pessoa.find_by_user_id(current_user.id)
+      render :action => 'edit'
+    else
     @pessoa = Pessoa.new
+    end
   end
 
   # GET /pessoas/1/edit
@@ -74,6 +80,6 @@ class PessoasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pessoa_params
-      params.require(:pessoa).permit(:nome, :idade, :endereco, :user_id)
+      params.require(:pessoa).permit(:nome, :idade, :endereco, :user_id, :interess_ids => [])
     end
 end

@@ -24,9 +24,15 @@
     <%= f.text_field :endereco %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%= f.label :cep %><br>
+    <%= f.text_field :cep %>
   </div>
+ <% for interesse in Interess.all %>
+<tr>
+<td><%= check_box_tag "pessoa[interess_ids][]", interesse.id, @pessoa.interesses.include?(interesse) %></td>
+<td><%= interesse.nome %></td>
+</tr>
+<% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

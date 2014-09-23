@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :places
+
+  resources :interesses
+
   resources :pessoas
   get "home/new_release" => 'home#new_release', :as => :new_release
   get "/home", to: "pages#home", as: "home"
@@ -7,6 +11,7 @@ Rails.application.routes.draw do
 
   get 'home/locais' => 'home#locais'
   get "home/map_release" => 'home#map_release', :as => :map_release
+  get "home/map_more" => 'home#map_more', :as => :map_more
 
   get 'home/index'
 

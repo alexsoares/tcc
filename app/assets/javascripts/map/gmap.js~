@@ -5,18 +5,7 @@ $(window).load(function() {
 var map;
 
 function initialize() {
-        
-  var mapOptions = {
-          center: new google.maps.LatLng(30.055487, 31.279766),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.NORMAL,
-          panControl: true,
-          scaleControl: false,
-          streetViewControl: true,
-          overviewMapControl: true
-        };
-        // initializing map
-        map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+
         
    // geocoding 
       var geocoding  = new google.maps.Geocoder();
@@ -84,13 +73,29 @@ function codeLatLng(geocoding){
 }
 function codeAddress(geocoding){
   var address = $("#search_box_geocoding").val();
+        
+  var mapOptions = {
+          center: new google.maps.LatLng(30.055487, 31.279766),
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.NORMAL,
+          panControl: true,
+          scaleControl: false,
+          streetViewControl: true,
+          overviewMapControl: true
+        };
+        // initializing map
+        map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
   if(address.length > 0){
     geocoding.geocode({'address': address},function(results, status){
       if(status == google.maps.GeocoderStatus.OK){
         map.setCenter(results[0].geometry.location);
         var marker  =  new google.maps.Marker({
           map: map,
-          position: results[0].geometry.location
+          position: results[0].geometry.location;
+	var marker2 = new google.maps.Marker({
+	      position: new google.maps.LatLng(-22.826915,-47.074739);
+	      map: map,
+	      title:"Teste"
         });
         }else{
         alert("Geocode was not successful for the following reason: " + status);

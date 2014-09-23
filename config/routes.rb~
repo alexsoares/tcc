@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+  resources :interesses
+
   resources :pessoas
+  get "home/new_release" => 'home#new_release', :as => :new_release
+  get "/home", to: "pages#home", as: "home"
+  get "/geocoding", to: "pages#geocoding", as: "geocoding"
+  get "/reverse_geocoding", to: "pages#reverse_geocoding", as: "reverse_geocoding"
+
+  get 'home/locais' => 'home#locais'
+  get "home/map_release" => 'home#map_release', :as => :map_release
 
   get 'home/index'
 

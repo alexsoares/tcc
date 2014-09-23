@@ -8,11 +8,10 @@
 </p>
 <p>
 <p>
-
 </p>
 <%= form_tag(home_locais_path, :method => 'get', :remote => true, :'data-update-target' => 'update-   container') do %>
     <p>
-     <%= submit_tag 'Localizar locais proximos', :disable_with => 'Please wait...', :class => 'submit' %>
+     <%= submit_tag 'Localizar locais proximos', :disable_with => 'Please wait...',:id => 'locais', :class => 'btn btn-primary' %>
     </p>
   <% end %>
 <%else%>
@@ -20,6 +19,17 @@
 <%end%>
 <br/>
 <p>
-<div id="spot">
-</div>
+<h2>Locais Próximos a você</h2>
+    <ul class="nav nav-tabs">
+     </ul>
+    <div class="tab-content">
+        <div id="sectionA" class="tab-pane fade in active">
+        <p class = "valores"></p>
+	<div id="spot1"></div>
+        </div>
+        <div id="sectionB" class="tab-pane fade">
+            <p>Section B content…</p>
+        </div>
+    </div>
+<%end%>
 

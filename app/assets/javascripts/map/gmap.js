@@ -76,7 +76,7 @@ function codeAddress(geocoding){
         
   var mapOptions = {
           center: new google.maps.LatLng(30.055487, 31.279766),
-          zoom: 8,
+          zoom: 15,
           mapTypeId: google.maps.MapTypeId.NORMAL,
           panControl: true,
           scaleControl: false,
@@ -92,6 +92,7 @@ function codeAddress(geocoding){
         var marker  =  new google.maps.Marker({
           map: map,
           position: results[0].geometry.location
+
         });
         }else{
         alert("Geocode was not successful for the following reason: " + status);
