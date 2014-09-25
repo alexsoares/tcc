@@ -69,6 +69,6 @@ class InteressesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interess_params
-      params.require(:interess).permit(:nome, :descricao, :user)
+      params.require(:interess).permit(:nome, :descricao, :place_ids => [])
     end
 end

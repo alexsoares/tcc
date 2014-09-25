@@ -1,6 +1,2 @@
-<% current_user.pessoa.interesses.each do |i|%>
-$('.nav').append('<li><a data-toggle="tab" href="#<%= i.nome.downcase %>"><%= i.nome %></a></li>');
-$('.tab-content').append('<div id="<%= i.nome.downcase %>" class="tab-pane fade in active"><p class = "valores"></p><div id="spot1"></div></div>');
-$('#spot1').append("<%= escape_javascript(render :partial => 'locais')%>");
-<%end%>
+$('#<%= @spot_id%>').html("<%= @spot_id %>");
 

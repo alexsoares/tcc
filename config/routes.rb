@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/home", to: "pages#home", as: "home"
   get "/geocoding", to: "pages#geocoding", as: "geocoding"
   get "/reverse_geocoding", to: "pages#reverse_geocoding", as: "reverse_geocoding"
-
+  get 'home/tabs' => 'home#tabs'
   get 'home/locais' => 'home#locais'
   get "home/map_release" => 'home#map_release', :as => :map_release
   get "home/map_more" => 'home#map_more', :as => :map_more

@@ -1,15 +1,7 @@
 <%if user_signed_in?%>
 <% if current_user.pessoa.present?%>
-<br/>
-<p>  <h1>Você está aqui:</h1>
-</p>
-<p>
-  <%= current_user.pessoa.endereco%>
-</p>
-<p>
-<p>
-</p>
-<%= form_tag(home_locais_path, :method => 'get', :remote => true, :'data-update-target' => 'update-   container') do %>
+  <h3>A seguir você encontrará locais próximos a você</h3>
+<%= form_tag(home_tabs_path, :method => 'get', :remote => true, :'data-update-target' => 'update-   container') do %>
     <p>
      <%= submit_tag 'Localizar locais proximos', :disable_with => 'Please wait...',:id => 'locais', :class => 'btn btn-primary' %>
     </p>
@@ -20,16 +12,18 @@
 <br/>
 <p>
 <h2>Locais Próximos a você</h2>
-    <ul class="nav nav-tabs">
-     </ul>
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+    </ul>
     <div class="tab-content">
-        <div id="sectionA" class="tab-pane fade in active">
-        <p class = "valores"></p>
-	<div id="spot1"></div>
-        </div>
-        <div id="sectionB" class="tab-pane fade">
-            <p>Section B content…</p>
-        </div>
+      <div class="tab-pane active" id="home">
+	  <h1>Você está aqui:</h1>
+	  <%= current_user.pessoa.endereco%>
+          <%= hidden_field_tag "search_box_geocoding", @pessoa.endereco%>
+	<p>
+	<button class="demo btn btn-primary btn-lg" href="#responsive" data-toggle="modal" id = "submit_button_geocoding" >Ver Mapa</button>
+	</p>
+      </div>
     </div>
 <%end%>
 

@@ -1,0 +1,9 @@
+<% current_user.pessoa.interesses.each do |i|%>
+$('.nav-tabs').append('<li><%= link_to i.nome.capitalize, "##{i.nome.downcase}" , { :role=>"tab","data-toggle" => "tab", :remote => true} %></li>');
+$('.tab-content').append('<div id="<%= i.nome.downcase %>" class="tab-pane"><div id="spot<%= i.id%>"><%= escape_javascript(render :partial => 'locais' )%></div></div>');
+
+
+<%end%>
+
+
+

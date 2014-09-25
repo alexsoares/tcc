@@ -19,13 +19,10 @@
     <%= f.label :descricao %><br>
     <%= f.text_area :descricao %>
   </div>
-  <% for type in Place.all %>
-      <tr>
-        <td><%= check_box_tag "interess[place_ids][]", type.id, @interess.places.include?(type) %>
-        </td>
-        <td><%= type.nome %></td>
-      </tr>
-  <% end %>
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.text_field :user %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
