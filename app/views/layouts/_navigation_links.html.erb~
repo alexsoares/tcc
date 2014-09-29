@@ -5,7 +5,7 @@
       </a>
 
       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-	<li role = "presentation" class="dropdown-header"><%= link_to "Interesses", edit_pessoa_path(current_user.pessoa) %></li>
+	<li role = "presentation" class=""dropdown-header"><%= link_to "Interesses", edit_pessoa_path(current_user.pessoa) %></li>
         <li role="presentation" class="dropdown-header"><%= link_to "Perfil", edit_user_registration_path %></li>
 	<li role="presentation" class="dropdown-header"><%= link_to "Sair", destroy_user_session_path, :method => :delete %></li>
         

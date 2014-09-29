@@ -11,6 +11,17 @@ gem 'jbuilder', '~> 1.5.3'
 gem 'bcrypt', '~> 3.1.2'
 gem 'spring',        group: :development
 
+gem 'capistrano', '~> 3.1.0'
+
+# rails specific capistrano funcitons
+gem 'capistrano-rails', '~> 1.1.0'
+gem 'capistrano-rbenv', github: "capistrano/rbenv"
+# integrate bundler with capistrano
+gem 'capistrano-bundler'
+
+# Use Unicorn as our app server
+gem 'unicorn'
+
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'geocoder'

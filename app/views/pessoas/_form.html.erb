@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
+    <%= f.text_field :nome, 'data-provide'=>"typeahead" %>
   </div>
   <div class="field">
     <%= f.label :idade %><br>
@@ -24,13 +24,18 @@
     <%= f.text_field :endereco %>
   </div>
 
- <% for interesse in Interess.all %>
+<table class="tabelas">
+<th colspan="2" style=" font-size: large; color: blue">Interesses</th>
+<% Interess.all.in_groups_of(5, false) do |row_interesses| %>
 <tr>
-<td><%= check_box_tag "pessoa[interess_ids][]", interesse.id, @pessoa.interesses.include?(interesse) %></td>
-<td><%= interesse.nome %></td>
-</tr>
+<% row_interesses.each do |interesse| %>
+<td><%= check_box_tag "pessoa[interess_ids][]", interesse.id, @pessoa.interesses.include?(interesse) %> <%= interesse.nome %></td>
 <% end %>
+</tr>
+<%end%>
+</table>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Salvar", :class => "btn"%>
   </div>
 <% end %>

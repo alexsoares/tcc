@@ -22,16 +22,18 @@ function initialize() {
 var info;
 function codeLatLng(geocoding){
 
-  var input = $('#search_box_reverse').val();
+  var input = $('#lat').val();
+  var input2 = $('#lgt').val();
   console.log(input);
   
   var latlngbounds = new google.maps.LatLngBounds();
   var listener;
   var regex = /([1-9])+\.([1-9])+\,([1-9])+\.([1-9])+/g;
-  if(regex.test(input)) {
+   {
   var latLngStr = input.split(",",2);
-  var lat = parseFloat(latLngStr[0]);
-  var lng = parseFloat(latLngStr[1]);
+  var lat = parseFloat(input);
+
+  var lng = parseFloat(input2);
   var latLng = new google.maps.LatLng(lat, lng);
   geocoding.geocode({'latLng': latLng}, function(results, status) {
      if (status == google.maps.GeocoderStatus.OK){

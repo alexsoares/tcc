@@ -28,10 +28,11 @@ function codeLatLng(geocoding){
   var latlngbounds = new google.maps.LatLngBounds();
   var listener;
   var regex = /([1-9])+\.([1-9])+\,([1-9])+\.([1-9])+/g;
-  if(regex.test(input)) {
+   {
   var latLngStr = input.split(",",2);
-  var lat = parseFloat(latLngStr[0]);
-  var lng = parseFloat(latLngStr[1]);
+  var lat = parseFloat($("#lat").val());
+
+  var lng = parseFloat($("#lgt").val());
   var latLng = new google.maps.LatLng(lat, lng);
   geocoding.geocode({'latLng': latLng}, function(results, status) {
      if (status == google.maps.GeocoderStatus.OK){
@@ -91,11 +92,8 @@ function codeAddress(geocoding){
         map.setCenter(results[0].geometry.location);
         var marker  =  new google.maps.Marker({
           map: map,
-          position: results[0].geometry.location;
-	var marker2 = new google.maps.Marker({
-	      position: new google.maps.LatLng(-22.826915,-47.074739);
-	      map: map,
-	      title:"Teste"
+          position: results[0].geometry.location
+
         });
         }else{
         alert("Geocode was not successful for the following reason: " + status);

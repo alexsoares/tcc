@@ -1,1 +1,2 @@
-$('#myModal').html("<%= escape_javascript(render :partial => 'map_release', :locals => {:latitude => @latitude, :longitude => @longitude})%>");
+$('#map-container').html("<%= escape_javascript(render :partial => 'map_release', :locals => {:latitude => @latitude, :longitude => @longitude})%>");
+$('#responsive').modal();

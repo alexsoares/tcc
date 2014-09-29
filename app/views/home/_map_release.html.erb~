@@ -1,4 +1,5 @@
 <p>
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{latitude}%2C-47.074739"  %>
+<button class="demo btn btn-primary btn-lg" href="#responsive" data-toggle="modal" id = "submit_button_geocoding" >Ver Mapa</button>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{latitude}%2C#{longitude}"  %>
 </p>
 
